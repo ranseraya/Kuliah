@@ -5,9 +5,10 @@
 struct mahasiswa{
     int NPM;
     char nama[50];
-    char prodi[30];
+    char prodi[50];
     float IPK;
 };
+
 typedef struct mahasiswa Mahasiswa;
 
 void tampilkanData(Mahasiswa mhs[], int jumlah);
@@ -43,134 +44,141 @@ int main(){
         {123015, "Sulum", "Informatika", 3.5}
     };
     int pilihan, sorting, pilihanSort, arah;
-    int jumlahMahasiswa = sizeof(mhs)/sizeof(mhs[0]);
+    int jumlahMhs = sizeof(mhs)/sizeof(mhs[0]);
     while(1){
-    printf("==== Program Sorting Data Mahasiwa ====\n");
-    printf("1. Menampilkan seluruh data\n");
-    printf("2. Sorting Data\n");
-    printf("3. Keluar program\n");
-    printf("Pilih nomor program: ");
+    printf("=== Program Bubble Sort Data ===\n");
+    printf("1. Menampilkan data\n");
+    printf("2. Sorting data\n");
+    printf("3. Keluar program!\n");
+    printf("Masukkan nomor program: ");
     scanf("%d", &pilihan);
     switch(pilihan){
         case 1:
-            tampilkanData(mhs, jumlahMahasiswa);
+            tampilkanData(mhs, jumlahMhs);
             break;
         case 2:
-            printf("==== Pilih Jenis Sorting ====\n");
+            printf("=== Pilih Jenis Sorting ===\n");
             printf("1. Bubble Sort\n");
             printf("2. Selection Sort\n");
             printf("3. Insertion Sort\n");
-            printf("Pilih nomor jenis sorting: ");
+            printf("Pilih jenis sorting: ");
             scanf("%d", &sorting);
             switch(sorting){
                 case 1:
-                    printf("==== Arah pengurutan ====\n");
+                    printf("=== Arah pengurutan ===\n");
                     printf("1. Ascending(default)\n");
                     printf("2. Descending\n");
                     printf("Pilih nomor arah sorting: ");
                     scanf("%d", &arah);
-                    printf("\nPilih sorting:\n");
+                    printf("\n Pilih sorting berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
-                    printf("2. Berdasarkan Nama\n");
+                    printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
                     printf("Masukkan nomor program: ");
                     scanf("%d", &pilihanSort);
                     switch(pilihanSort){
                         case 1:
-                            bubbleSortNPM(mhs, jumlahMahasiswa, arah);
+                            bubbleSortNPM(mhs, jumlahMhs, arah);
                             break;
                         case 2:
-                            bubbleSortNama(mhs, jumlahMahasiswa, arah);
+                            bubbleSortNama(mhs, jumlahMhs, arah);
                             break;
                         case 3:
-                            bubbleSortIPK(mhs, jumlahMahasiswa, arah);
+                            bubbleSortIPK(mhs, jumlahMhs, arah);
                             break;
                         default:
+                            printf("Masukkan nomor dari program!! ");
                             break;
                     }
                     break;
                 case 2:
-                    printf("==== Arah pengurutan ====\n");
+                    printf("=== Arah pengurutan ===\n");
                     printf("1. Ascending(default)\n");
                     printf("2. Descending\n");
                     printf("Pilih nomor arah sorting: ");
                     scanf("%d", &arah);
-                    printf("\nPilih sorting:\n");
+                    printf("\n Pilih sorting berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
-                    printf("2. Berdasarkan Nama\n");
+                    printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
                     printf("Masukkan nomor program: ");
                     scanf("%d", &pilihanSort);
                     switch(pilihanSort){
                         case 1:
-                            selectionSortNPM(mhs, jumlahMahasiswa, arah);
+                            selectionSortNPM(mhs, jumlahMhs, arah);
                             break;
                         case 2:
-                            selectionSortNama(mhs, jumlahMahasiswa, arah);
+                            selectionSortNama(mhs, jumlahMhs, arah);
                             break;
                         case 3:
-                            selectionSortIPK(mhs, jumlahMahasiswa, arah);
+                            selectionSortIPK(mhs, jumlahMhs, arah);
                             break;
                         default:
+                            printf("Masukkan nomor dari program!! ");
                             break;
                     }
                     break;
                 case 3:
-                    printf("==== Arah pengurutan ====\n");
+                    printf("=== Arah pengurutan ===\n");
                     printf("1. Ascending(default)\n");
                     printf("2. Descending\n");
                     printf("Pilih nomor arah sorting: ");
                     scanf("%d", &arah);
-                    printf("\nPilih sorting:\n");
+                    printf("\n Pilih sorting berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
-                    printf("2. Berdasarkan Nama\n");
+                    printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
                     printf("Masukkan nomor program: ");
-                    scanf("%d", &pilihanSort);  
+                    scanf("%d", &pilihanSort);
                     switch(pilihanSort){
                         case 1:
-                            insertionSortNPM(mhs, jumlahMahasiswa, arah);
+                            insertionSortNPM(mhs, jumlahMhs, arah);
                             break;
                         case 2:
-                            insertionSortNama(mhs, jumlahMahasiswa, arah);
+                            insertionSortNama(mhs, jumlahMhs, arah);
                             break;
                         case 3:
-                            insertionSortIPK(mhs, jumlahMahasiswa, arah);
+                            insertionSortIPK(mhs, jumlahMhs, arah);
                             break;
                         default:
+                            printf("Masukkan nomor dari program!! ");
                             break;
                     }
                     break;
                 default:
+                    printf("Masukkan nomor dari program!! ");
                     break;
             }
             break;
         case 3:
+            printf("Program berhenti...!");
             return 0;
             break;
         default:
+            printf("Masukkan nomor dari program!! ");
             break;
+        }
     }
-    }
+    return 0;
 }
 
 void tampilkanData(Mahasiswa mhs[], int jumlah){
-    printf("| %-3s | %-6s | %-10s | %-13s | %-4s |\n", "No.", "NPM", "Nama", "Prodi", "IPK");
+        printf("|%-3s|%-6s|%-10s|%-13s|%-4s|\n", "No.","NPM","Nama","Prodi", "IPK");
     for(int i = 0; i < jumlah; i++){
-        printf("| %-3d | %-6d | %-10s | %-13s | %-4.2f |\n", i+1, mhs[i].NPM, mhs[i].nama, mhs[i].prodi, mhs[i].IPK);
-        printf("\n");
+        printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", i+1, mhs[i].NPM, mhs[i].nama, mhs[i].prodi, mhs[i].IPK);
     }
 }
+
 void bubbleSortNPM(Mahasiswa mhs[], int jumlah, int arah){
     int perbandingan;
-    for (int i = 0; i < jumlah - 1; i++) {
-        for (int j = i + 1; j < jumlah; j++) {
+    for(int i = 0; i < jumlah-1; i++){
+        for(int j = i+1; j < jumlah; j++){
             if(arah == 2){
                 perbandingan = mhs[i].NPM < mhs[j].NPM;
-            } else {
+            } else{
                 perbandingan = mhs[i].NPM > mhs[j].NPM;
             }
-            if (perbandingan) {
+            if(perbandingan){
                 Mahasiswa temp = mhs[i];
                 mhs[i] = mhs[j];
                 mhs[j] = temp;
@@ -178,17 +186,18 @@ void bubbleSortNPM(Mahasiswa mhs[], int jumlah, int arah){
         }
     }
 }
+
 void bubbleSortNama(Mahasiswa mhs[], int jumlah, int arah){
     int perbandingan;
-    for (int i = 0; i < jumlah - 1; i++) {
-        for (int j = i + 1; j < jumlah; j++) {
-            if(arah == 2){
+    for(int i = 0; i < jumlah-1; i++){
+        for(int j = i+1; j < jumlah; j++){
+                        if(arah == 2){
                 perbandingan = strcmp(mhs[i].nama, mhs[j].nama);
-            } else {
-                perbandingan = strcmp(mhs[j].nama, mhs[i].nama);
+            } else{
+                perbandingan = strcmp(mhs[i].nama, mhs[j].nama);
             }
             perbandingan == -1 ? perbandingan = 0 : 1;
-            if (perbandingan) {
+            if(perbandingan){
                 Mahasiswa temp = mhs[i];
                 mhs[i] = mhs[j];
                 mhs[j] = temp;
@@ -196,16 +205,17 @@ void bubbleSortNama(Mahasiswa mhs[], int jumlah, int arah){
         }
     }
 }
+
 void bubbleSortIPK(Mahasiswa mhs[], int jumlah, int arah){
     int perbandingan;
-    for (int i = 0; i < jumlah - 1; i++) {
-        for (int j = i + 1; j < jumlah; j++) {
+    for(int i = 0; i < jumlah-1; i++){
+        for(int j = i+1; j < jumlah; j++){
             if(arah == 2){
                 perbandingan = mhs[i].IPK < mhs[j].IPK;
-            } else {
+            } else{
                 perbandingan = mhs[i].IPK > mhs[j].IPK;
             }
-            if (perbandingan) {
+            if(perbandingan){
                 Mahasiswa temp = mhs[i];
                 mhs[i] = mhs[j];
                 mhs[j] = temp;
@@ -221,56 +231,13 @@ void selectionSortNPM(Mahasiswa mhs[], int jumlah, int arah){
             if(arah == 2){
                 if(mhs[j].NPM > mhs[posisi].NPM){
                     posisi = j;
-                }
-            } else {
+                }        
+            } else 
                 if(mhs[posisi].NPM > mhs[j].NPM){
                     posisi = j;
-                }
-            }
+                }        
         }
-        if (posisi != i){
-            Mahasiswa temp = mhs[posisi];
-            mhs[posisi] = mhs[i];
-            mhs[i] = temp;
-        }
-    }
-}
-void selectionSortNama(Mahasiswa mhs[], int jumlah, int arah){
-    for(int i = 0; i < jumlah - 1; i++){
-        int posisi = i;
-        for(int j = i + 1; j < jumlah; j++){
-            if(arah == 2){
-                if(strcmp(mhs[j].nama, mhs[posisi].nama) == 1){
-                    posisi = j;
-                }
-            } else {
-                if(strcmp(mhs[posisi].nama, mhs[j].nama) == 1){
-                    posisi = j;
-                }
-            }
-        }
-        if (posisi != i){
-            Mahasiswa temp = mhs[posisi];
-            mhs[posisi] = mhs[i];
-            mhs[i] = temp;
-        }
-    }
-}
-void selectionSortIPK(Mahasiswa mhs[], int jumlah, int arah){
-    for(int i = 0; i < jumlah - 1; i++){
-        int posisi = i;
-        for(int j = i + 1; j < jumlah; j++){
-            if(arah == 2){
-                if(mhs[j].IPK > mhs[posisi].IPK){
-                    posisi = j;
-                }
-            } else {
-                if(mhs[posisi].IPK > mhs[j].IPK){
-                    posisi = j;
-                }
-            }
-        }
-        if (posisi != i){
+        if(posisi != i){
             Mahasiswa temp = mhs[posisi];
             mhs[posisi] = mhs[i];
             mhs[i] = temp;
@@ -278,20 +245,62 @@ void selectionSortIPK(Mahasiswa mhs[], int jumlah, int arah){
     }
 }
 
-void insertionSortNPM(Mahasiswa mhs[], int jumlah, int arah) {
+void selectionSortNama(Mahasiswa mhs[], int jumlah, int arah){
+    for(int i = 0; i < jumlah - 1; i++){
+        int posisi = i;
+        for(int j = i + 1; j < jumlah; j++){
+            if(arah == 2){
+                if(strcmp(mhs[j].nama, mhs[posisi].nama) == 1){
+                    posisi = j;
+                }        
+            } else 
+                if(strcmp(mhs[posisi].nama, mhs[j].nama) == 1){
+                    posisi = j;
+                }        
+        }
+        if(posisi != i){
+            Mahasiswa temp = mhs[posisi];
+            mhs[posisi] = mhs[i];
+            mhs[i] = temp;
+        }
+    }
+}
+
+void selectionSortIPK(Mahasiswa mhs[], int jumlah, int arah){
+    for(int i = 0; i < jumlah - 1; i++){
+        int posisi = i;
+        for(int j = i + 1; j < jumlah; j++){
+            if(arah == 2){
+                if(mhs[j].IPK > mhs[posisi].IPK){
+                    posisi = j;
+                }        
+            } else 
+                if(mhs[posisi].IPK > mhs[j].IPK){
+                    posisi = j;
+                }        
+        }
+        if(posisi != i){
+            Mahasiswa temp = mhs[posisi];
+            mhs[posisi] = mhs[i];
+            mhs[i] = temp;
+        }
+    }
+}
+
+void insertionSortNPM(Mahasiswa mhs[], int jumlah, int arah){
     int perbandingan;
-    for (int i = 1; i < jumlah; i++) {
+    for(int i = 1; i < jumlah; i++){
         Mahasiswa temp = mhs[i];
         int j;
-        for (j = i - 1; j >= 0; j--) {
-            if (arah == 2) {  
+        for(j = i -1; j >= 0; j--){
+            if(arah == 2){
                 perbandingan = mhs[j].NPM < temp.NPM;
-            } else {  
+            }else {
                 perbandingan = mhs[j].NPM > temp.NPM;
             }
             if(perbandingan){
                 mhs[j + 1] = mhs[j];
-            }else{
+            } else {
                 break;
             }
         }
@@ -301,38 +310,18 @@ void insertionSortNPM(Mahasiswa mhs[], int jumlah, int arah) {
 
 void insertionSortNama(Mahasiswa mhs[], int jumlah, int arah){
     int perbandingan;
-    for (int i = 1; i < jumlah; i++) {
+    for(int i = 1; i < jumlah; i++){
         Mahasiswa temp = mhs[i];
         int j;
-        for (j = i - 1; j >= 0; j--) {
-            if (arah == 2) {  
+        for(j = i -1; j >= 0; j--){
+            if(arah == 2){
                 perbandingan = strcmp(mhs[j].nama, temp.nama) < 0;
-            } else { 
+            }else {
                 perbandingan = strcmp(mhs[j].nama, temp.nama) > 0;
             }
             if(perbandingan){
                 mhs[j + 1] = mhs[j];
-            }else{
-                break;
-            }
-        }
-        mhs[j + 1] = temp;
-    }
-}
-void insertionSortIPK(Mahasiswa mhs[], int jumlah, int arah){
-    int perbandingan;
-    for (int i = 1; i < jumlah; i++) {
-        Mahasiswa temp = mhs[i];
-        int j;
-        for (j = i - 1; j >= 0; j--) {
-            if (arah == 2) {  
-                perbandingan = mhs[j].IPK < temp.IPK;
-            } else {  
-                perbandingan = mhs[j].IPK > temp.IPK;
-            }
-            if(perbandingan){
-                mhs[j + 1] = mhs[j];
-            }else{
+            } else {
                 break;
             }
         }
@@ -340,3 +329,23 @@ void insertionSortIPK(Mahasiswa mhs[], int jumlah, int arah){
     }
 }
 
+void insertionSortIPK(Mahasiswa mhs[], int jumlah, int arah){
+    int perbandingan;
+    for(int i = 1; i < jumlah; i++){
+        Mahasiswa temp = mhs[i];
+        int j;
+        for(j = i -1; j >= 0; j--){
+            if(arah == 2){
+                perbandingan = mhs[j].IPK < temp.IPK;
+            }else {
+                perbandingan = mhs[j].IPK > temp.IPK;
+            }
+            if(perbandingan){
+                mhs[j + 1] = mhs[j];
+            } else {
+                break;
+            }
+        }
+        mhs[j + 1] = temp;
+    }
+}

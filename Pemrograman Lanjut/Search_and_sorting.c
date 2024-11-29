@@ -29,6 +29,9 @@ void merge(Mahasiswa mhs[], int left, int mid, int right, int pilihanSort, int a
 void mergeSort(Mahasiswa mhs[], int left, int right, int pilihanSort, int arah);
 
 void sequentialSearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearch);
+void sentinelSearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearch);
+void binarySearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearch);
+void interpolationSearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearch);
 
 
 int main(){
@@ -48,6 +51,21 @@ int main(){
         {123013, "Matya", "Informatika", 3.12},
         {123014, "Tasya", "Informatika", 3.45},
         {123015, "Sulum", "Informatika", 3.5}
+        {123016, "Septa", "Informatika", 4.00}
+        {123017, "Rahan", "Informatika", 3.75}
+        {123018, "Iwas", "Informatika", 3.92}
+        {123019, "Larya", "Informatika", 3.21}
+        {123020, "Tepda", "Informatika", 2.96}
+        {123021, "Dany", "Informatika", 4.00}
+        {123022, "Nadra", "Informatika", 3.45}
+        {123023, "Pitha", "Informatika", 3.32}
+        {123024, "Andre", "Informatika", 3.92}
+        {123025, "Alran", "Informatika", 3.32}
+        {123026, "Mada", "Informatika", 3.5}
+        {123027, "Nery", "Informatika", 3.88}
+        {123028, "Lamse", "Informatika", 3.42}
+        {123029, "Damda", "Informatika", 4.00}
+        {123030, "Lili", "Informatika", 3.5}
     };
     int pilihan, sorting, pilihanSort, arah, searching, pilihanSearch;
     char cari[100];
@@ -79,7 +97,7 @@ int main(){
                     printf("2. Descending\n");
                     printf("Pilih nomor arah sorting: ");
                     scanf("%d", &arah);
-                    printf("\n Pilih sorting berdasarkan\n");
+                    printf("\nPilih sorting berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
                     printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
@@ -106,7 +124,7 @@ int main(){
                     printf("2. Descending\n");
                     printf("Pilih nomor arah sorting: ");
                     scanf("%d", &arah);
-                    printf("\n Pilih sorting berdasarkan\n");
+                    printf("\nPilih sorting berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
                     printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
@@ -133,7 +151,7 @@ int main(){
                     printf("2. Descending\n");
                     printf("Pilih nomor arah sorting: ");
                     scanf("%d", &arah);
-                    printf("\n Pilih sorting berdasarkan\n");
+                    printf("\nPilih sorting berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
                     printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
@@ -160,7 +178,7 @@ int main(){
                     printf("2. Descending\n");
                     printf("Pilih nomor arah sorting: ");
                     scanf("%d", &arah);
-                    printf("\n Pilih sorting berdasarkan\n");
+                    printf("\nPilih sorting berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
                     printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
@@ -196,7 +214,7 @@ int main(){
             scanf("%d", &searching);
             switch(searching){
                 case 1:
-                    printf("\n Pilih searching berdasarkan\n");
+                    printf("\nPilih searching berdasarkan\n");
                     printf("1. Berdasarkan NPM\n");
                     printf("2. Berdasarkan nama\n");
                     printf("3. Berdasarkan IPK\n");
@@ -224,12 +242,83 @@ int main(){
                     }
                     break;
                 case 2:
+                    printf("\nPilih searching berdasarkan\n");
+                    printf("1. Berdasarkan NPM\n");
+                    printf("2. Berdasarkan nama\n");
+                    printf("3. Berdasarkan IPK\n");
+                    printf("4. Berdasarkan Keseluruhan\n");
+                    printf("Masukkan nomor program: ");
+                    scanf("%d", &pilihanSearch);
+                    printf("Masukkan kata kunci pencarian: ");
+                    scanf("%s", &cari);
+                    switch(pilihanSearch){
+                        case 1:
+                            sentinelSearch(mhs, jumlahMhs, cari, 1);
+                            break;
+                        case 2:
+                            sentinelSearch(mhs, jumlahMhs, cari, 2);
+                            break;
+                        case 3:
+                            sentinelSearch(mhs, jumlahMhs, cari, 3);
+                            break;
+                        case 4:
+                            sentinelSearch(mhs, jumlahMhs, cari, 4);
+                            break;
+                        default:
+                            printf("Masukkan nomor dari program!! ");
+                            break;
+                    }
                     break;
                 case 3:
+                    printf("\nPilih searching berdasarkan\n");
+                    printf("1. Berdasarkan NPM\n");
+                    printf("2. Berdasarkan nama\n");
+                    printf("3. Berdasarkan IPK\n");
+                    printf("Masukkan nomor program: ");
+                    scanf("%d", &pilihanSearch);
+                    printf("Masukkan kata kunci pencarian: ");
+                    scanf("%s", &cari);
+                    switch(pilihanSearch){
+                        case 1:
+                            binarySearch(mhs, jumlahMhs, cari, 1);
+                            break;
+                        case 2:
+                            binarySearch(mhs, jumlahMhs, cari, 2);
+                            break;
+                        case 3:
+                            binarySearch(mhs, jumlahMhs, cari, 3);
+                            break;
+                        default:
+                            printf("Masukkan nomor dari program!! ");
+                            break;
+                    }
                     break;
                 case 4:
+                    printf("\nPilih searching berdasarkan\n");
+                    printf("1. Berdasarkan NPM\n");
+                    printf("2. Berdasarkan nama\n");
+                    printf("3. Berdasarkan IPK\n");
+                    printf("Masukkan nomor program: ");
+                    scanf("%d", &pilihanSearch);
+                    printf("Masukkan kata kunci pencarian: ");
+                    scanf("%s", &cari);
+                    switch(pilihanSearch){
+                        case 1:
+                            interpolationSearch(mhs, jumlahMhs, cari, 1);
+                            break;
+                        case 2:
+                            interpolationSearch(mhs, jumlahMhs, cari, 2);
+                            break;
+                        case 3:
+                            interpolationSearch(mhs, jumlahMhs, cari, 3);
+                            break;
+                        default:
+                            printf("Masukkan nomor dari program!! ");
+                            break;
+                    }
                     break;
                 default:
+                    printf("Masukkan nomor dari program!! ");
                     break;
             }
             break;
@@ -526,8 +615,103 @@ void sequentialSearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearc
                 flag = 1;
                 printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", i+1, mhs[i].NPM, mhs[i].nama, mhs[i].prodi, mhs[i].IPK);
             }
-        } else {
+        } 
+    }
+    if(flag == 0){
+        printf("\nData tidak ada");
+    }
+    printf("\n");
+}
 
+void sentinelSearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearch){
+    int flag = 0;
+    int cariNPM = atoi(cari);  
+    float cariIPK = atof(cari); 
+
+    Mahasiswa temp = mhs[jumlah - 1];
+
+    char npmString[10], ipkString[5];
+    // sprintf(npmString, "%d", mhs[jumlah - 1].NPM);
+    // sprintf(ipkString, "%.2f", mhs[jumlah - 1].IPK);
+
+    mhs[jumlah - 1].NPM = cariNPM;
+    strncpy(mhs[jumlah - 1].nama, cari, strlen(cari) + 1);
+    mhs[jumlah - 1].IPK = cariIPK;
+
+    int i = 0;
+    while (1) {
+        if(pilihanSearch == 1) {
+            if(mhs[i].NPM == cariNPM) {
+                if (flag != 1) printf("\nData ditemukan berikut detailnya: \n|%-3s|%-6s|%-10s|%-13s|%-4s|\n", "No.","NPM","Nama","Prodi", "IPK");
+                flag = 1;
+                printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", i+1, mhs[i].NPM, mhs[i].nama, mhs[i].prodi, mhs[i].IPK);
+                break; 
+            }
+        } else if (pilihanSearch == 2) {
+            if(strncmp(mhs[i].nama, cari, strlen(cari)) == 0) {
+                if (flag != 1) printf("\nData ditemukan berikut detailnya: \n|%-3s|%-6s|%-10s|%-13s|%-4s|\n", "No.","NPM","Nama","Prodi", "IPK");
+                flag = 1;
+                printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", i+1, mhs[i].NPM, mhs[i].nama, mhs[i].prodi, mhs[i].IPK);
+                break; 
+            }
+        } else if (pilihanSearch == 3) {
+            if(mhs[i].IPK == cariIPK) {
+                if (flag != 1) printf("\nData ditemukan berikut detailnya: \n|%-3s|%-6s|%-10s|%-13s|%-4s|\n", "No.","NPM","Nama","Prodi", "IPK");
+                flag = 1;
+                printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", i+1, mhs[i].NPM, mhs[i].nama, mhs[i].prodi, mhs[i].IPK);
+                break; 
+            }
+        } else if (pilihanSearch == 4) {
+            if(mhs[i].NPM == cariNPM || strncmp(mhs[i].nama, cari, strlen(cari)) == 0 || mhs[i].IPK == cariIPK) {
+                if (flag != 1) printf("\nData ditemukan berikut detailnya: \n|%-3s|%-6s|%-10s|%-13s|%-4s|\n", "No.","NPM","Nama","Prodi", "IPK");
+                flag = 1;
+                printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", i+1, mhs[i].NPM, mhs[i].nama, mhs[i].prodi, mhs[i].IPK);
+                break; 
+            }
+        }
+
+        i++; 
+
+        if (strncmp(mhs[i].nama, temp.nama, strlen(temp.nama)) == 0 && mhs[i].NPM == temp.NPM && mhs[i].IPK == temp.IPK) {
+            break; 
+        }
+    }
+
+    if(flag == 0) {
+        printf("\nData tidak ada");
+    }
+    printf("\n");
+    mhs[jumlah - 1] = temp;
+}
+
+
+void binarySearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearch){
+    mergeSort(mhs, 0, jumlah-1, pilihanSearch, 1);
+    int flag = 0, left = 0, right = jumlah - 1, mid, perbandingan;
+
+    while(left <= right){
+        mid = (left + right)/2;
+        char npmString[10], ipkString[5];
+        if(pilihanSearch == 1){
+            sprintf(npmString, "%d", mhs[mid].NPM);
+            perbandingan = strcmp(npmString, cari);
+        } else if (pilihanSearch == 2){
+            perbandingan = strcmp(mhs[mid].nama, cari);
+        } else if (pilihanSearch == 3){
+            strlen(cari) == 3 ? sprintf(ipkString, "%.1f", mhs[mid].IPK) : sprintf(ipkString, "%.2f", mhs[mid].IPK);
+            perbandingan = strcmp(ipkString, cari);
+        } else{
+            printf("Masukkan nomor program...!");
+        }
+        if(perbandingan == 0){
+            if (flag != 1) printf("\nData ditemukan berikut detailnya: \n|%-3s|%-6s|%-10s|%-13s|%-4s|\n", "No.","NPM","Nama","Prodi", "IPK");
+            flag = 1;
+            printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", mid+1, mhs[mid].NPM, mhs[mid].nama, mhs[mid].prodi, mhs[mid].IPK);
+            break;
+        } else if (perbandingan < 0){
+            left = mid + 1;
+        } else {
+            right = mid - 1;
         }
     }
     if(flag == 0){
@@ -536,6 +720,57 @@ void sequentialSearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearc
     printf("\n");
 }
 
-void sentinelSearch(Mahasiswa mhs[], int jumlah, char cari[], int pelihanSearch){
-    
+
+void interpolationSearch(Mahasiswa mhs[], int jumlah, char cari[], int pilihanSearch){
+    mergeSort(mhs, 0, jumlah-1, pilihanSearch, 1);
+    int flag = 0, left = 0, right = jumlah - 1, pos, perbandingan;
+    char npmString[10], ipkString[5];
+
+    while(left <= right && flag == 0){
+        if(pilihanSearch == 1){
+            int cariInt = atoi(cari); 
+            if (mhs[left].NPM == mhs[right].NPM) {
+                pos = left; 
+            } else {
+                pos = left + ((double)(right - left) / 
+                             (mhs[right].NPM - mhs[left].NPM)) * 
+                             (cariInt - mhs[left].NPM);
+            }
+            sprintf(npmString, "%d", mhs[pos].NPM);
+            perbandingan = strcmp(npmString, cari);
+        } else if (pilihanSearch == 2){
+            pos = left + ((double)(right - left) / 
+                         (strcmp(mhs[right].nama, mhs[left].nama))) * 
+                         strcmp(cari, mhs[left].nama);
+            perbandingan = strcmp(mhs[pos].nama, cari);
+        } else if (pilihanSearch == 3){
+            double cariDouble = atof(cari); 
+            if (mhs[left].IPK == mhs[right].IPK) {
+                pos = left; 
+            } else {
+                pos = left + ((double)(right - left) / 
+                             (mhs[right].IPK - mhs[left].IPK)) * 
+                             (cariDouble - mhs[left].IPK);
+            }
+            strlen(cari) == 3 ? sprintf(ipkString, "%.1f", mhs[pos].IPK) : sprintf(ipkString, "%.2f", mhs[pos].IPK);
+            perbandingan = strcmp(ipkString, cari);
+        }
+
+        if (pos < left || pos > right) break;
+
+        if(perbandingan == 0){
+            if (flag != 1) printf("\nData ditemukan berikut detailnya: \n|%-3s|%-6s|%-10s|%-13s|%-4s|\n", "No.","NPM","Nama","Prodi", "IPK");
+            flag = 1;
+            printf("|%-3d|%-6d|%-10s|%-13s|%-4.2f|\n", pos+1, mhs[pos].NPM, mhs[pos].nama, mhs[pos].prodi, mhs[pos].IPK);
+            break;
+        } else if (perbandingan < 0){
+            left = pos + 1;
+        } else {
+            right = pos - 1;
+        }
+    }
+    if(flag == 0){
+        printf("\nData tidak ada");
+    }
+    printf("\n");
 }
